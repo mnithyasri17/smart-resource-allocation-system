@@ -1,0 +1,9 @@
+const allocateResource = require("../utils/allocator");
+exports.createBooking = async (req, res) => {
+  try {
+    const result = await allocateResource(req.body);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
